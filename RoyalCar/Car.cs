@@ -10,71 +10,83 @@ namespace Prestige.RoyalCar
 {
     public class Car
     {
-        [JsonProperty(PropertyName ="Brand")]
-        private string brand { get; set;}
-        [JsonProperty(PropertyName = "Model")]
-        private string model { get; set; }
-        [JsonProperty(PropertyName = "Carcase")]
-        private string carcase { get; set;}
-        [JsonProperty(PropertyName = "Motor")]
-        private string motor { get; set; }
-        [JsonProperty(PropertyName = "Color")]
-        private string color { get; set; }
-        [JsonProperty(PropertyName = "Occupancy")]
-        private bool occupancy { get; set; }
+        [JsonProperty(PropertyName = "BRAND")]
+        private string brand;
+        public string Brand{
+            get {
+                return brand;
+            }
+            set
+            {
+                brand = value;
+            }
+        }
+        [JsonProperty(PropertyName = "MODEL")]
+        private string model;
+        public string Model{
+            get
+            {
+                return model;
+            }
+            set
+            {
+              model = value;
+            }
+        }
+        [JsonProperty(PropertyName = "CARCASE")]
+        private string carcase;
+        public string Carcase{
+            get
+            {
+                return carcase;
+            }
+            set
+            {
+                carcase = value;
+            }
+        }
+        [JsonProperty(PropertyName = "MOTOR")]
+        private string motor;
+        public string Motor{
+            get
+            {
+                return motor;
+            }
+            set
+            {
+                motor = value;
+            }
+        }
+        [JsonProperty(PropertyName = "COLOR")]
+        private string color;
+        public string Color{
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+            }
+        }
+        [JsonProperty(PropertyName = "OCCUPANCY")]
+        private bool occupancy;
+        public bool Occupancy{
+            get
+            {
+                return occupancy;
+            }
+            set
+            {
+                occupancy = value;
+            }
+        }
         public Car(string brand, string model, string carcase, string motor, string color) {
             this.brand = brand;
             this.model = model;
             this.carcase = carcase;
             this.motor = motor;
             this.color = color; 
-        }
-        public void setBrand(string brand)
-        {
-            this.brand=brand;
-        }
-        public string getBrand() {
-            return brand;
-        }
-        public void setModel(string model)
-        {
-            this.model = model;
-        }
-        public string getModel()
-        {
-            return model;
-        }
-        public void setCarcase(string carcase)
-        {
-            this.carcase = carcase;
-        }
-        public string getCarcase()
-        {
-            return carcase;
-        }
-        public void setMotor(string motor)
-        {
-            this.motor = motor;
-        }
-        public string getMotor()
-        {
-            return motor;
-        }
-        public void setColor(string color)
-        {
-            this.color = color;
-        }
-        public string getColor()
-        {
-            return brand;
-        }
-        public void setOccypancy(bool occupancy)
-        {
-            this.occupancy = occupancy;
-        }
-        public bool getOccypancy()
-        {
-            return occupancy;
         }
         public override string ToString()
         {

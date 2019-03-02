@@ -12,7 +12,7 @@ namespace Prestige.RoyalCar
 {
     public class JsonToArrayObject
     { 
-        public static List<Car> createJsonArray(){
+        public static List<Car> CreateJsonArray(){
             List<Car> cars;
             string json;
             using (StreamReader file = new StreamReader("file.json"))
@@ -22,7 +22,7 @@ namespace Prestige.RoyalCar
                 }
             return cars;
         }
-        public static void serializJsonArray(List<Car> cars)
+        public static void SerializJsonArray(List<Car> cars)
         {
             using (StreamWriter file = new StreamWriter("file.json"))
             {
