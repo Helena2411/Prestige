@@ -13,21 +13,20 @@ namespace Prestige.RoyalCar
 {
     public class JsonToArrayObject
     { 
-        public static List<Car> DeserializeArray(){
-            String filename = ConfigurationSettings.AppSettings.Get("json");
-            Console.WriteLine(filename);
+        public static List<Car> DeserializeArray(string filename)
+        {
             List<Car> cars;
             string json;
-            using (StreamReader file = new StreamReader("file.json"))
+            using (StreamReader file = new StreamReader(filename))
                 {
                     json = file.ReadToEnd();
                     cars = JsonConvert.DeserializeObject<List<Car>>(json);
                 }
             return cars;
         }
-        public static void SerializeArray(List<Car> cars)
+        public static void SerializeArray(List<Car> cars, string filename)
         {
-            using (StreamWriter file = new StreamWriter("file.json"))
+            using (StreamWriter file = new StreamWriter(filename))
             {
                 string json = JsonConvert.SerializeObject(cars); 
                 file.WriteLine(json);
