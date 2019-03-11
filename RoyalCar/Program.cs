@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Configuration;
 
 namespace Prestige.RoyalCar
 {
@@ -14,19 +15,14 @@ namespace Prestige.RoyalCar
     {
         static void Main(string[] args)
         {
-            List<Car> cars = JsonToArrayObject.CreateJsonArray();
+            string filename = ConfigurationSettings.AppSettings.Get("json");
+            List<Car> cars = JsonToArrayObject.DeserializeArray(filename);
 
             Console.WriteLine("Hi! What is your name?");
             string name = Console.ReadLine();
             Customer customer = new Customer(name);
 
-            int n = 1;
-            foreach (var item in cars)
-            {
-                Console.WriteLine(n + ". " + item.ToString());
-                n++;
-            }
-
+            Writer.PrintArray(cars);
             Console.WriteLine("\n" + customer.Name + ", you can choose, that you want to do: 1.occupy car or 2. retrieve car");
             string answer = Console.ReadLine();
 
@@ -35,14 +31,14 @@ namespace Prestige.RoyalCar
                 Console.WriteLine("You can choose car by number (true acess for occupy)");
                 string index = Console.ReadLine();
                 cars = customer.OccupyCar(cars, Convert.ToInt32(index) - 1);
-                JsonToArrayObject.SerializJsonArray(cars);
+                JsonToArrayObject.SerializeArray(cars, filename);
             }
             else if (answer == "2")
             {
                 Console.WriteLine("You can choose car by number (true access for occupy)");
                 string index = Console.ReadLine();
                 cars = customer.RetrieveCar(cars, Convert.ToInt32(index) - 1);
-                JsonToArrayObject.SerializJsonArray(cars);
+                JsonToArrayObject.SerializeArray(cars, filename);
             }
             else Console.WriteLine("Incorrect! Bye!"); 
 

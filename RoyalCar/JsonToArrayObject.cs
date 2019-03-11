@@ -7,12 +7,15 @@ using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace Prestige.RoyalCar
 {
     public class JsonToArrayObject
     { 
-        public static List<Car> CreateJsonArray(){
+        public static List<Car> DeserializeArray(){
+            String filename = ConfigurationSettings.AppSettings.Get("json");
+            Console.WriteLine(filename);
             List<Car> cars;
             string json;
             using (StreamReader file = new StreamReader("file.json"))
@@ -22,7 +25,7 @@ namespace Prestige.RoyalCar
                 }
             return cars;
         }
-        public static void SerializJsonArray(List<Car> cars)
+        public static void SerializeArray(List<Car> cars)
         {
             using (StreamWriter file = new StreamWriter("file.json"))
             {

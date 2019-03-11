@@ -8,27 +8,17 @@ namespace Prestige.RoyalCar
 {
     class Customer
     {
-        private string name;
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set {
-                name = value;
-            }
-        }
+        public string Name { get; set; }
 
         public Customer(string name)
         {
-            this.name = name;
+            Name = name;
         }
 
         public List<Car> OccupyCar(List<Car> cars, int index) {
-            if (cars[index].Occupancy)
+            if (cars[index].IsOccupied)
             {
-                cars[index].Occupancy = false;
+                cars[index].IsOccupied = false;
                 Console.WriteLine("\n" + cars[index].Brand +  " is occupy");
             }
             else Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
@@ -36,9 +26,9 @@ namespace Prestige.RoyalCar
         }
         public List<Car> RetrieveCar(List<Car> cars, int index)
         {
-            if (!cars[index].Occupancy)
+            if (!cars[index].IsOccupied)
             {
-                cars[index].Occupancy = true; ;
+                cars[index].IsOccupied = true; ;
                 Console.WriteLine("\n" + cars[index].Brand + " is retrieve");
             }
             else Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
@@ -47,7 +37,7 @@ namespace Prestige.RoyalCar
 
         public override string ToString()
         {
-            return name;
+            return Name;
         }
 
     }
