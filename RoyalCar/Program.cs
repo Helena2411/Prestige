@@ -15,7 +15,7 @@ namespace Prestige.RoyalCar
     {
         static void Main(string[] args)
         {
-            string filename = ConfigurationSettings.AppSettings.Get("json");
+            string filename = ConfigurationManager.AppSettings.Get("json");
             List<Car> cars = JsonToArrayObject.DeserializeArray(filename);
 
             Console.WriteLine("Hi! What is your name?");
