@@ -35,6 +35,7 @@ namespace Prestige.RoyalCar
             else Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
             return cars;
         }
+
         public override string ToString()
         {
             return Name;
