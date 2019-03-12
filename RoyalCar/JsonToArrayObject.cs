@@ -24,6 +24,7 @@ namespace Prestige.RoyalCar
                 }
             return cars;
         }
+
         public static void SerializeArray(List<Car> cars, string filename)
         {
             using (StreamWriter file = new StreamWriter(filename))

@@ -44,5 +44,5 @@ namespace Prestige.RoyalCar
 
             Console.ReadLine();
         }
-}
+    }
 }
