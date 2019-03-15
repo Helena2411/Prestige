@@ -24,7 +24,6 @@ namespace Prestige.RoyalCar
             else Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
             return cars; 
         }
-
         public List<Car> RetrieveCar(List<Car> cars, int index)
         {
             if (!cars[index].IsOccupied)
@@ -40,5 +39,6 @@ namespace Prestige.RoyalCar
         {
             return Name;
         }
+
     }
 }

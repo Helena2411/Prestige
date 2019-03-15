@@ -12,7 +12,6 @@ namespace Prestige.RoyalCar
         {
             Console.WriteLine(message);
         }
-
         public static void PrintArray(List<Car> cars) {
             for (int i = 0; i < cars.Count; i++)
             {
