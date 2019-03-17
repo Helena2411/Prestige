@@ -30,18 +30,20 @@ namespace Prestige.RoyalCar
             {
                 Console.WriteLine("You can choose car by number (true acess for occupy)");
                 string index = Console.ReadLine();
-                cars = customer.OccupyCar(cars, Convert.ToInt32(index) - 1);
+                customer.OccupyCar(cars, Convert.ToInt32(index) - 1);
                 JsonToArrayObject.SerializeArray(cars, filename);
             }
             else if (answer == "2")
             {
                 Console.WriteLine("You can choose car by number (true access for occupy)");
                 string index = Console.ReadLine();
-                cars = customer.RetrieveCar(cars, Convert.ToInt32(index) - 1);
+                customer.RetrieveCar(cars, Convert.ToInt32(index) - 1);
                 JsonToArrayObject.SerializeArray(cars, filename);
             }
-            else Console.WriteLine("Incorrect! Bye!"); 
-
+            else
+            {
+                Console.WriteLine("Incorrect! Bye!");
+            }
             Console.ReadLine();
         }
     }

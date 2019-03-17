@@ -22,7 +22,8 @@ namespace Prestige.RoyalCar
 
         public bool IsOccupied { get; set; }
 
-        public Car(string brand, string model, string carcase, string motor, string color) {
+        public Car(string brand, string model, string carcase, string motor, string color)
+        {
             Brand = brand;
             Model = model;
             Carcase = carcase;

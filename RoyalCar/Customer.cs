@@ -15,25 +15,30 @@ namespace Prestige.RoyalCar
             Name = name;
         }
 
-        public List<Car> OccupyCar(List<Car> cars, int index) {
-            if (cars[index].IsOccupied)
+        public void OccupyCar(List<Car> cars, int index)
+        {
+            if (!cars[index].IsOccupied)
+            {
+                Console.WriteLine("\n" + cars[index].Brand + " is occupy");
+            }
+            else
             {
                 cars[index].IsOccupied = false;
-                Console.WriteLine("\n" + cars[index].Brand +  " is occupy");
-            }
-            else Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
-            return cars; 
+                Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
+            } 
         }
 
-        public List<Car> RetrieveCar(List<Car> cars, int index)
+        public void RetrieveCar(List<Car> cars, int index)
         {
             if (!cars[index].IsOccupied)
             {
                 cars[index].IsOccupied = true; ;
                 Console.WriteLine("\n" + cars[index].Brand + " is retrieve");
             }
-            else Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
-            return cars;
+            else
+            {
+                Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
+            }
         }
 
         public override string ToString()
