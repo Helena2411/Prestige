@@ -33,7 +33,7 @@ namespace Prestige.RoyalCar
 
         public override string ToString()
         {
-            return Brand + " " + Model + " " + Carcase + " " + Motor + " " + Color + "  [" + Convert.ToString(IsOccupied) + "] ";
+            return $"{Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
         }
     }
 }
