@@ -32,7 +32,7 @@ namespace Prestige.RoyalCar
         {
             if (!cars[index].IsOccupied)
             {
-                cars[index].IsOccupied = true; ;
+                cars[index].IsOccupied = true;
                 Console.WriteLine("\n" + cars[index].Brand + " is retrieve");
             }
             else
