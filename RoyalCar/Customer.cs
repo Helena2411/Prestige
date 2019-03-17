@@ -19,12 +19,12 @@ namespace Prestige.RoyalCar
         {
             if (!cars[index].IsOccupied)
             {
-                Console.WriteLine("\n" + cars[index].Brand + " is occupy");
+                Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
             }
             else
             {
                 cars[index].IsOccupied = false;
-                Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
+                Console.WriteLine("\n" + cars[index].Brand + " is occupy");
             } 
         }
 
