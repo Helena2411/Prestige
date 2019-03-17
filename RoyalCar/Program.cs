@@ -28,7 +28,7 @@ namespace Prestige.RoyalCar
 
             if (answer == "1")
             {
-                Console.WriteLine("You can choose car by number (true acess for occupy)");
+                Console.WriteLine("You can choose car by number (true access for occupy)");
                 string index = Console.ReadLine();
                 customer.OccupyCar(cars, Convert.ToInt32(index) - 1);
                 JsonToArrayObject.SerializeArray(cars, filename);
