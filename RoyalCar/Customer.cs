@@ -17,27 +17,27 @@ namespace Prestige.RoyalCar
 
         public void OccupyCar(List<Car> cars, int index)
         {
-            if (!cars[index].IsOccupied)
-            {
-                Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
-            }
-            else
+            if (cars[index].IsOccupied)
             {
                 cars[index].IsOccupied = false;
                 Console.WriteLine("\n" + cars[index].Brand + " is occupy");
-            } 
+            }
+            else
+            {
+                Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
+            }
         }
 
         public void RetrieveCar(List<Car> cars, int index)
         {
-            if (!cars[index].IsOccupied)
+            if (cars[index].IsOccupied)
             {
-                cars[index].IsOccupied = true;
-                Console.WriteLine("\n" + cars[index].Brand + " is retrieve");
+                Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
             }
             else
             {
-                Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
+                cars[index].IsOccupied = true;
+                Console.WriteLine("\n" + cars[index].Brand + " is retrieve");
             }
         }
 
