@@ -8,15 +8,11 @@ namespace Prestige.RoyalCar
 {
     class Writer
     {
-        public static void PrintLine(String message)
+        public static void PrintArray(List<Car> cars)
         {
-            Console.WriteLine(message);
-        }
-
-        public static void PrintArray(List<Car> cars) {
             for (int i = 0; i < cars.Count; i++)
             {
-                Console.WriteLine(i + 1 + ". " + cars[i].ToString());
+                Console.WriteLine(i + 1 + ". " + cars[i]);
             }
         }
     }
