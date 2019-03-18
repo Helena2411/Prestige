@@ -20,11 +20,11 @@ namespace Prestige.RoyalCar
             if (cars[index].IsOccupied)
             {
                 cars[index].IsOccupied = false;
-                Console.WriteLine("\n" + cars[index].Brand + " is occupy");
+                Console.WriteLine($"\n {cars[index].Brand} is occupy");
             }
             else
             {
-                Console.WriteLine("\n" + cars[index].Brand + " is already occupy");
+                Console.WriteLine($"\n {cars[index].Brand} is already occupy");
             }
         }
 
@@ -32,18 +32,18 @@ namespace Prestige.RoyalCar
         {
             if (cars[index].IsOccupied)
             {
-                Console.WriteLine("\n" + cars[index].Brand + " is already retrieve");
+                Console.WriteLine($"\n {cars[index].Brand} is already retrieve");
             }
             else
             {
                 cars[index].IsOccupied = true;
-                Console.WriteLine("\n" + cars[index].Brand + " is retrieve");
+                Console.WriteLine($"\n {cars[index].Brand} is retrieve");
             }
         }
 
         public override string ToString()
         {
-            return Name;
+            return $"{Name}";
         }
     }
 }

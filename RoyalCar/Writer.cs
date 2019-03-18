@@ -12,7 +12,7 @@ namespace Prestige.RoyalCar
         {
             for (int i = 0; i < cars.Count; i++)
             {
-                Console.WriteLine(i + 1 + ". " + cars[i]);
+                Console.WriteLine($"{i+1}. {cars[i]}");
             }
         }
     }

@@ -23,7 +23,7 @@ namespace Prestige.RoyalCar
             Customer customer = new Customer(name);
 
             Writer.PrintArray(cars);
-            Console.WriteLine("\n" + customer.Name + ", you can choose, that you want to do: 1.occupy car or 2. retrieve car");
+            Console.WriteLine($"\n {customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
             string answer = Console.ReadLine();
 
             if (answer == "1")
