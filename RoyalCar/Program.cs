@@ -15,36 +15,53 @@ namespace Prestige.RoyalCar
     {
         static void Main(string[] args)
         {
-            string filename = ConfigurationManager.AppSettings.Get("FileName");
-            List<Car> cars = JsonToArrayObject.DeserializeArray(filename);
+                Dictionary<String, String> dictionary = new Dictionary<String, String>();
+                string filename = ConfigurationManager.AppSettings.Get("FileName");
+                List<Car> cars = JsonToArrayObject.DeserializeArray(filename);
+                Console.WriteLine("Hi! What is your name?");
+                string name = Console.ReadLine();
+                //generate id
+                Customer customer = new Customer(name);
+                RentManager rentManager = new RentManager();
 
-            Console.WriteLine("Hi! What is your name?");
-            string name = Console.ReadLine();
-            Customer customer = new Customer(name);
+                Writer.PrintArray(cars);
+                Console.WriteLine($"\n {customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
+                string answer = Console.ReadLine();
 
-            Writer.PrintArray(cars);
-            Console.WriteLine($"\n {customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
-            string answer = Console.ReadLine();
-
-            if (answer == "1")
+            while (true)
             {
-                Console.WriteLine("You can choose car by number (true access for occupy)");
-                string index = Console.ReadLine();
-                customer.OccupyCar(cars, Convert.ToInt32(index) - 1);
-                JsonToArrayObject.SerializeArray(cars, filename);
+                try
+                {
+                    if (answer == "1")
+                    {
+                        Console.WriteLine("You can choose car by number (true access for occupy)");
+                        string index = Console.ReadLine();
+                        rentManager.CheckOccupyCar(dictionary, cars, customer.IdOfCustomer, Convert.ToInt32(index) - 1);
+                        JsonToArrayObject.SerializeArray(cars, filename);
+                    }
+                    else if (answer == "2")
+                    {
+                        Console.WriteLine("You can choose car by number (true access for occupy)");
+                        string index = Console.ReadLine();
+                        rentManager.CheckRetrieveCar(dictionary, cars, customer.IdOfCustomer, Convert.ToInt32(index) - 1);
+                        JsonToArrayObject.SerializeArray(cars, filename);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect! Bye!");
+                    }
+                    Console.ReadLine();
+                    break;
+                }
+                catch (OccupyException ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+                finally
+                {
+                    Console.WriteLine("Have a good day!");
+                }
             }
-            else if (answer == "2")
-            {
-                Console.WriteLine("You can choose car by number (true access for occupy)");
-                string index = Console.ReadLine();
-                customer.RetrieveCar(cars, Convert.ToInt32(index) - 1);
-                JsonToArrayObject.SerializeArray(cars, filename);
-            }
-            else
-            {
-                Console.WriteLine("Incorrect! Bye!");
-            }
-            Console.ReadLine();
         }
     }
 }
