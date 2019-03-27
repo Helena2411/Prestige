@@ -10,40 +10,18 @@ namespace Prestige.RoyalCar
     {
         public string Name { get; set; }
 
+        public String IdOfCustomer { get; set; }
+
         public Customer(string name)
         {
             Name = name;
-        }
-
-        public void OccupyCar(List<Car> cars, int index)
-        {
-            if (cars[index].IsOccupied)
-            {
-                cars[index].IsOccupied = false;
-                Console.WriteLine($"\n {cars[index].Brand} is occupy");
-            }
-            else
-            {
-                Console.WriteLine($"\n {cars[index].Brand} is already occupy");
-            }
-        }
-
-        public void RetrieveCar(List<Car> cars, int index)
-        {
-            if (cars[index].IsOccupied)
-            {
-                Console.WriteLine($"\n {cars[index].Brand} is already retrieve");
-            }
-            else
-            {
-                cars[index].IsOccupied = true;
-                Console.WriteLine($"\n {cars[index].Brand} is retrieve");
-            }
+            IdOfCustomer = Guid.NewGuid().ToString("N");
+            Console.WriteLine(IdOfCustomer);
         }
 
         public override string ToString()
         {
-            return $"{Name}";
+            return $"{IdOfCustomer} - {Name}";
         }
     }
 }
