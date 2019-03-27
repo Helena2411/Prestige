@@ -12,9 +12,11 @@ namespace Prestige.RoyalCar
     {
         public string Brand { get; set; }
 
+        public String IdOfCar { get; set; }
+
         public string Model { get; set; }
 
-        public string Carcase { get; set; }  
+        public string Carcase { get; set; }
 
         public string Motor { get; set; }
 
@@ -28,12 +30,13 @@ namespace Prestige.RoyalCar
             Model = model;
             Carcase = carcase;
             Motor = motor;
-            Color = color; 
+            Color = color;
+            IdOfCar = Guid.NewGuid().ToString("N"); ;
         }
 
         public override string ToString()
         {
-            return $"{Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
+            return $"{IdOfCar} - {Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
         }
     }
 }
