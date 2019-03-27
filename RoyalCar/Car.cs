@@ -36,7 +36,7 @@ namespace Prestige.RoyalCar
 
         public override string ToString()
         {
-            return $"{IdOfCar} - {Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
+            return $"{Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
         }
     }
 }

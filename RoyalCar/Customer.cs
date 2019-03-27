@@ -16,12 +16,11 @@ namespace Prestige.RoyalCar
         {
             Name = name;
             IdOfCustomer = Guid.NewGuid().ToString("N");
-            Console.WriteLine(IdOfCustomer);
         }
 
         public override string ToString()
         {
-            return $"{IdOfCustomer} - {Name}";
+            return $"{Name}";
         }
     }
 }
