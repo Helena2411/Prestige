@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
+using Prestige.RoyalCar.Client.Business;
 
 namespace Prestige.RoyalCar
 {
@@ -15,36 +16,50 @@ namespace Prestige.RoyalCar
     {
         static void Main(string[] args)
         {
+            Dictionary<String, String> databaseOfOrders = new Dictionary<String, String>();
             string filename = ConfigurationManager.AppSettings.Get("FileName");
             List<Car> cars = JsonToArrayObject.DeserializeArray(filename);
 
             Console.WriteLine("Hi! What is your name?");
             string name = Console.ReadLine();
             Customer customer = new Customer(name);
+            RentManagement rentManager = new RentManagement();
 
             Writer.PrintArray(cars);
-            Console.WriteLine("\n" + customer.Name + ", you can choose, that you want to do: 1.occupy car or 2. retrieve car");
+            Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
             string answer = Console.ReadLine();
 
-            if (answer == "1")
+            while (true)
             {
-                Console.WriteLine("You can choose car by number (true access for occupy)");
-                string index = Console.ReadLine();
-                customer.OccupyCar(cars, Convert.ToInt32(index) - 1);
-                JsonToArrayObject.SerializeArray(cars, filename);
+                try
+                {
+                    Console.WriteLine("You can choose car by number (true - available for occupation)");
+                    if (answer == "1")
+                    {
+                        string index = Console.ReadLine();
+                        rentManager.CheckOccupyCar(databaseOfOrders, cars, customer.Id, Convert.ToInt32(index) - 1);
+                        JsonToArrayObject.SerializeArray(cars, filename);
+                        Console.WriteLine("You occupied a car! Have a good day!");
+                    }
+                    else if (answer == "2")
+                    {
+                        string index = Console.ReadLine();
+                        rentManager.CheckRetrieveCar(databaseOfOrders, cars, customer.Id, Convert.ToInt32(index) - 1);
+                        JsonToArrayObject.SerializeArray(cars, filename);
+                        Console.WriteLine("You retrieved a car! Have a good day!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect! Bye!");
+                    }
+                    Console.ReadLine();
+                    break;
+                }
+                catch (OccupyException ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
             }
-            else if (answer == "2")
-            {
-                Console.WriteLine("You can choose car by number (true access for occupy)");
-                string index = Console.ReadLine();
-                customer.RetrieveCar(cars, Convert.ToInt32(index) - 1);
-                JsonToArrayObject.SerializeArray(cars, filename);
-            }
-            else
-            {
-                Console.WriteLine("Incorrect! Bye!");
-            }
-            Console.ReadLine();
         }
     }
 }

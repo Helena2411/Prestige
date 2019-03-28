@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalCar.Client.Business
 {
     public class Car
     {
         public string Brand { get; set; }
 
+        public string Id { get; set; }
+
         public string Model { get; set; }
 
-        public string Carcase { get; set; }  
+        public string Carcase { get; set; }
 
         public string Motor { get; set; }
 
@@ -28,7 +28,8 @@ namespace Prestige.RoyalCar
             Model = model;
             Carcase = carcase;
             Motor = motor;
-            Color = color; 
+            Color = color;
+            Id = Guid.NewGuid().ToString("N");
         }
 
         public override string ToString()
