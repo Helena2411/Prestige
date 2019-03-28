@@ -10,7 +10,7 @@ namespace Prestige.RoyalCar.Client.Business
     {
         public string Brand { get; set; }
 
-        public String IdOfCar { get; set; }
+        public string Id { get; set; }
 
         public string Model { get; set; }
 
@@ -29,7 +29,7 @@ namespace Prestige.RoyalCar.Client.Business
             Carcase = carcase;
             Motor = motor;
             Color = color;
-            IdOfCar = Guid.NewGuid().ToString("N");
+            Id = Guid.NewGuid().ToString("N");
         }
 
         public override string ToString()

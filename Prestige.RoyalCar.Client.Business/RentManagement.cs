@@ -12,7 +12,7 @@ namespace Prestige.RoyalCar.Client.Business
         {
             if (cars[index].IsOccupied)
             {
-                dictionary.Add(cars[index].IdOfCar, idCustomer);
+                dictionary.Add(cars[index].Id, idCustomer);
                 cars[index].IsOccupied = false;
             }
             else
@@ -29,7 +29,7 @@ namespace Prestige.RoyalCar.Client.Business
             }
             else
             {
-                dictionary.Remove(cars[index].IdOfCar);
+                dictionary.Remove(cars[index].Id);
                 cars[index].IsOccupied = true;
             }
         }
