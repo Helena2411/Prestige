@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalCar.Client.Business
 {
-    public class OccupyException : ApplicationException
+    public class OccupyException : Exception
     {
         public OccupyException() { }
 
