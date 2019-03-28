@@ -29,7 +29,7 @@ namespace Prestige.RoyalCar.Client.Business
             Carcase = carcase;
             Motor = motor;
             Color = color;
-            IdOfCar = Guid.NewGuid().ToString("N"); ;
+            IdOfCar = Guid.NewGuid().ToString("N");
         }
 
         public override string ToString()
