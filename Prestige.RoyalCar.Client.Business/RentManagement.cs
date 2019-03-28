@@ -17,7 +17,7 @@ namespace Prestige.RoyalCar.Client.Business
             }
             else
             {
-                throw new OccupyException("This car already is occupy ");
+                throw new OccupyException("This car is already occupied ");
             }
         }
 
@@ -25,7 +25,7 @@ namespace Prestige.RoyalCar.Client.Business
         {
             if (cars[index].IsOccupied)
             {
-                throw new OccupyException("This car already is retrieve ");
+                throw new OccupyException("This car is already retrieved ");
             }
             else
             {
