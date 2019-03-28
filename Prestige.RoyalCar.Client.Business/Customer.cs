@@ -10,12 +10,12 @@ namespace Prestige.RoyalCar.Client.Business
     {
         public string Name { get; set; }
 
-        public String IdOfCustomer { get; set; }
+        public string Id { get; set; }
 
         public Customer(string name)
         {
             Name = name;
-            IdOfCustomer = Guid.NewGuid().ToString("N");
+            Id = Guid.NewGuid().ToString("N");
         }
 
         public override string ToString()

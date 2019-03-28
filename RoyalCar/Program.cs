@@ -37,14 +37,14 @@ namespace Prestige.RoyalCar
                     if (answer == "1")
                     {
                         string index = Console.ReadLine();
-                        rentManager.CheckOccupyCar(dictionary, cars, customer.IdOfCustomer, Convert.ToInt32(index) - 1);
+                        rentManager.CheckOccupyCar(dictionary, cars, customer.Id, Convert.ToInt32(index) - 1);
                         JsonToArrayObject.SerializeArray(cars, filename);
                         Console.WriteLine("You occupied a car! Have a good day!");
                     }
                     else if (answer == "2")
                     {
                         string index = Console.ReadLine();
-                        rentManager.CheckRetrieveCar(dictionary, cars, customer.IdOfCustomer, Convert.ToInt32(index) - 1);
+                        rentManager.CheckRetrieveCar(dictionary, cars, customer.Id, Convert.ToInt32(index) - 1);
                         JsonToArrayObject.SerializeArray(cars, filename);
                         Console.WriteLine("You retrieved a car! Have a good day!");
                     }
