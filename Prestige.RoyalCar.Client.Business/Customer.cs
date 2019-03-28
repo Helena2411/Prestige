@@ -20,7 +20,7 @@ namespace Prestige.RoyalCar.Client.Business
 
         public override string ToString()
         {
-            return $"{Name}";
+            return Name;
         }
     }
 }
