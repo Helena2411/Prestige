@@ -16,14 +16,14 @@ namespace Prestige.RoyalCar
     {
         static void Main(string[] args)
         {
-            Dictionary<String, String> dictionary = new Dictionary<String, String>();
+            Dictionary<String, String> databaseOfOrders = new Dictionary<String, String>();
             string filename = ConfigurationManager.AppSettings.Get("FileName");
             List<Car> cars = JsonToArrayObject.DeserializeArray(filename);
 
             Console.WriteLine("Hi! What is your name?");
             string name = Console.ReadLine();
             Customer customer = new Customer(name);
-            RentManager rentManager = new RentManager();
+            RentManagement rentManager = new RentManagement();
 
             Writer.PrintArray(cars);
             Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
@@ -37,14 +37,14 @@ namespace Prestige.RoyalCar
                     if (answer == "1")
                     {
                         string index = Console.ReadLine();
-                        rentManager.CheckOccupyCar(dictionary, cars, customer.Id, Convert.ToInt32(index) - 1);
+                        rentManager.CheckOccupyCar(databaseOfOrders, cars, customer.Id, Convert.ToInt32(index) - 1);
                         JsonToArrayObject.SerializeArray(cars, filename);
                         Console.WriteLine("You occupied a car! Have a good day!");
                     }
                     else if (answer == "2")
                     {
                         string index = Console.ReadLine();
-                        rentManager.CheckRetrieveCar(dictionary, cars, customer.Id, Convert.ToInt32(index) - 1);
+                        rentManager.CheckRetrieveCar(databaseOfOrders, cars, customer.Id, Convert.ToInt32(index) - 1);
                         JsonToArrayObject.SerializeArray(cars, filename);
                         Console.WriteLine("You retrieved a car! Have a good day!");
                     }

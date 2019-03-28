@@ -8,11 +8,11 @@ namespace Prestige.RoyalCar.Client.Business
 {
     public class RentManagement
     {
-        public void CheckOccupyCar(Dictionary<String, String> dictionary, List<Car> cars, String idCustomer, int index)
+        public void CheckOccupyCar(Dictionary<String, String> databaseOfOrders, List<Car> cars, String idCustomer, int index)
         {
             if (cars[index].IsOccupied)
             {
-                dictionary.Add(cars[index].Id, idCustomer);
+                databaseOfOrders.Add(cars[index].Id, idCustomer);
                 cars[index].IsOccupied = false;
             }
             else
