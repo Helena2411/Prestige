@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalCar.Client.Business
 {
-    class Customer
+    public class Customer
     {
         public string Name { get; set; }
 

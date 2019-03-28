@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalCar.Client.Business
 {
-    class OccupyException : ApplicationException
+    public class OccupyException : ApplicationException
     {
         public OccupyException() { }
 
@@ -15,6 +15,6 @@ namespace Prestige.RoyalCar
 
         public OccupyException(string message, Exception inner) : base(message, inner) { }
 
-        public OccupyException(SerializationInfo info, StreamingContext context) : base(info, context) { }  
+        public OccupyException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 }

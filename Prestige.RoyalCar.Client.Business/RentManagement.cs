@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalCar.Client.Business
 {
-    class RentManager
+    public class RentManager
     {
         public void CheckOccupyCar(Dictionary<String, String> dictionary, List<Car> cars, String idCustomer, int index)
         {

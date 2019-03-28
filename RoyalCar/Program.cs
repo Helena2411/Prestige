@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
+using Prestige.RoyalCar.Client.Business;
 
 namespace Prestige.RoyalCar
 {

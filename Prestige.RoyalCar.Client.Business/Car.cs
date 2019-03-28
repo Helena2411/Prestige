@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalCar.Client.Business
 {
     public class Car
     {
