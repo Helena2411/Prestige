@@ -33,7 +33,7 @@ namespace Prestige.RoyalCar
             {
                 try
                 {
-                    Console.WriteLine("You can choose car by number (true access for occupy)");
+                    Console.WriteLine("You can choose car by number (true - available for occupation)");
                     if (answer == "1")
                     {
                         string index = Console.ReadLine();
