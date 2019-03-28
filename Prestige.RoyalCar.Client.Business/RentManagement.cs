@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalCar.Client.Business
 {
-    public class RentManager
+    public class RentManagement
     {
         public void CheckOccupyCar(Dictionary<String, String> dictionary, List<Car> cars, String idCustomer, int index)
         {
