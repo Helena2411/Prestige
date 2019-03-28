@@ -15,6 +15,5 @@ namespace Prestige.RoyalCar.Client.Business
 
         public OccupyException(string message, Exception inner) : base(message, inner) { }
 
-        public OccupyException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 }
