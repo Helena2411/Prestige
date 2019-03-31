@@ -1,26 +1,27 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalCar.Client.Business
 {
     public class Car
     {
         public string Brand { get; set; }
 
-        public String IdOfCar { get; set; }
+        public string Id { get; set; }
 
         public string Model { get; set; }
 
-        public string Carcase { get; set; }  
+        public string Carcase { get; set; }
 
         public string Motor { get; set; }
 
         public string Color { get; set; }
+
+        public string UserId { get; set; }
 
         public bool IsOccupied { get; set; }
 
@@ -31,12 +32,13 @@ namespace Prestige.RoyalCar
             Carcase = carcase;
             Motor = motor;
             Color = color;
-            IdOfCar = Guid.NewGuid().ToString("N"); ;
+            Id = Guid.NewGuid().ToString("N");
+            UserId = "";
         }
 
         public override string ToString()
         {
-            return $"{IdOfCar} - {Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
+            return $"{Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
         }
     }
 }
