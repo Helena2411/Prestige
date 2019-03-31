@@ -10,7 +10,7 @@ namespace Prestige.RoyalRent.Client.Business
 {
      public class RecordCustomer
     {
-        public static Customer checkCustomer(ObjectJson json, string email, string name)
+        public static Customer checkCustomer(RoyalCarContext json, string email, string name)
         {
             Customer customer;
             for (int i = 0; i < json.Customers.Count; i++)

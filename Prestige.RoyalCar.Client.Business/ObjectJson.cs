@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    public class ObjectJson
+    public class RoyalCarContext
     {
         public List<Car> Cars { get; set; }
          

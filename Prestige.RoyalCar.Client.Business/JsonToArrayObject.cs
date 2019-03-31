@@ -13,7 +13,7 @@ namespace Prestige.RoyalRent.Client.Business
 {
     public class JsonToArrayObject
     {
-        public static void SerializeArray(ObjectJson objectJson, string filename)
+        public static void SerializeArray(RoyalCarContext objectJson, string filename)
         {
             using (StreamWriter file = new StreamWriter(filename))
             {
@@ -22,12 +22,12 @@ namespace Prestige.RoyalRent.Client.Business
             }
         }
 
-        public static ObjectJson DeserializeArray(string filename)
+        public static RoyalCarContext DeserializeArray(string filename)
         {
             using (StreamReader file = new StreamReader(filename))
             {
                 var json = file.ReadToEnd();
-                return JsonConvert.DeserializeObject<ObjectJson>(json);
+                return JsonConvert.DeserializeObject<RoyalCarContext>(json);
             }
         }
     }

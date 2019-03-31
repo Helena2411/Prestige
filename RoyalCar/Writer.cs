@@ -18,7 +18,7 @@ namespace Prestige.RoyalRent
             }
         }
 
-        public static void PrintAvailableCar(ObjectJson json, Customer customer)
+        public static void PrintAvailableCar(RoyalCarContext json, Customer customer)
         {
             Console.WriteLine("Available for you cars and occupied you:");
             for (int i = 0; i < json.Cars.Count; i++)
