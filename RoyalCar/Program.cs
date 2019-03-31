@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 using System.Configuration;
 using Prestige.RoyalCar.Client.Business;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalRent
 {
     public class Program
     {

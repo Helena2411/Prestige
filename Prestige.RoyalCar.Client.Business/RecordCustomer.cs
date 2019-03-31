@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace Prestige.RoyalCar.Client.Business
+namespace Prestige.RoyalRent.Client.Business
 {
      public class RecordCustomer
     {

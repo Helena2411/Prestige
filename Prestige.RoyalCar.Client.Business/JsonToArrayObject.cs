@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Configuration;
-namespace Prestige.RoyalCar.Client.Business
+
+namespace Prestige.RoyalRent.Client.Business
 {
     public class JsonToArrayObject
     {
-
         public static void SerializeArray(ObjectJson objectJson, string filename)
         {
             using (StreamWriter file = new StreamWriter(filename))

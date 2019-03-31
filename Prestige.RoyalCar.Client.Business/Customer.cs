@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prestige.RoyalCar.Client.Business
+namespace Prestige.RoyalRent.Client.Business
 {
     public class Customer
     {

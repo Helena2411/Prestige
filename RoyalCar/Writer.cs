@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prestige.RoyalCar.Client.Business;
+using Prestige.RoyalRent.Client.Business;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalRent
 {
     class Writer
     {
@@ -23,7 +23,7 @@ namespace Prestige.RoyalCar
             Console.WriteLine("Available for you cars and occupied you:");
             for (int i = 0; i < json.Cars.Count; i++)
             {
-                if (json.Cars[i].IsOccupied | customer.Id == json.Cars[i].UserId)
+                if (json.Cars[i].IsOccupied | customer.Id == json.Cars[i].CustomerId)
                 {
                     Console.WriteLine($"{i + 1}. {json.Cars[i]}");
                 }

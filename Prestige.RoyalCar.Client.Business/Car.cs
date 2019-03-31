@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prestige.RoyalCar.Client.Business
+namespace Prestige.RoyalRent.Client.Business
 {
     public class Car
     {
@@ -21,7 +22,7 @@ namespace Prestige.RoyalCar.Client.Business
 
         public string Color { get; set; }
 
-        public string UserId { get; set; }
+        public string CustomerId { get; set; }
 
         public bool IsOccupied { get; set; }
 
@@ -33,7 +34,7 @@ namespace Prestige.RoyalCar.Client.Business
             Motor = motor;
             Color = color;
             Id = Guid.NewGuid().ToString("N");
-            UserId = "";
+            CustomerId = "";
         }
 
         public override string ToString()
