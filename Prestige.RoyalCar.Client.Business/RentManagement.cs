@@ -8,7 +8,7 @@ namespace Prestige.RoyalRent.Client.Business
 {
     public class RentManagement
     {
-        public void CheckOccupyCar(RoyalCarContext json, int index, Customer customer)
+        public void CheckOccupationOfCarAndSetConnectionWithCustomer(RoyalCarContext json, int index, Customer customer)
         {
             if (!json.Cars[index].IsOccupied)
             {
@@ -18,7 +18,7 @@ namespace Prestige.RoyalRent.Client.Business
             json.Cars[index].IsOccupied = false;
         }
 
-        public void CheckRetrieveCar(RoyalCarContext json, int index, Customer customer)
+        public void CheckRefundOfCarAndSetConnectionWithCustomer(RoyalCarContext json, int index, Customer customer)
         {
             if (json.Cars[index].IsOccupied)
             {

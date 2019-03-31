@@ -23,7 +23,7 @@ namespace Prestige.RoyalRent
             Console.WriteLine("Available for you cars and occupied you:");
             for (int i = 0; i < json.Cars.Count; i++)
             {
-                if (json.Cars[i].IsOccupied | customer.Id == json.Cars[i].CustomerId)
+                if (json.Cars[i].IsOccupied || customer.Id == json.Cars[i].CustomerId)
                 {
                     Console.WriteLine($"{i + 1}. {json.Cars[i]}");
                 }
