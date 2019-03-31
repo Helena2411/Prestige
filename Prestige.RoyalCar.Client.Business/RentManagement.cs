@@ -12,11 +12,11 @@ namespace Prestige.RoyalRent.Client.Business
         {
             if (!json.Cars[index].IsOccupied)
             {
-                throw new OccupyException("This car is already occupied ");
+                throw new OccupyException("This car is already occupied");
             }
             json.Cars[index].CustomerId = customer.Id;
             json.Cars[index].IsOccupied = false;
-           }
+        }
 
         public void CheckRetrieveCar(ObjectJson json, int index, Customer customer)
         {
