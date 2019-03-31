@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-     public class RecordCustomer
+    public class RecordCustomer
     {
         public static Customer checkCustomer(RoyalCarContext json, string email, string name)
         {
