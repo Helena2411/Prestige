@@ -20,7 +20,7 @@ namespace Prestige.RoyalRent
 
         public static void PrintAvailableCar(RoyalCarContext json, Customer customer)
         {
-            Console.WriteLine("Available for you cars and occupied you:");
+            Console.WriteLine("Available for you cars and occupied by you:");
             for (int i = 0; i < json.Cars.Count; i++)
             {
                 if (json.Cars[i].IsOccupied || customer.Id == json.Cars[i].CustomerId)
