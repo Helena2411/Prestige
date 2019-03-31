@@ -13,6 +13,7 @@ namespace Prestige.RoyalRent.Client.Business
         public static Customer AddNewCustomerOrGetExisting(RoyalCarContext json, string email, string name)
         {
             Customer customer;
+            // TODO convert to LINQ
             for (int i = 0; i < json.Customers.Count; i++)
             {
                 if (email == json.Customers[i].Email)
