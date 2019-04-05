@@ -24,8 +24,6 @@ namespace Prestige.RoyalRent.Client.Business
 
         public string CustomerId { get; set; }
 
-        public bool IsOccupied { get; set; }
-
         public Car(string brand, string model, string carcase, string motor, string color)
         {
             Brand = brand;
@@ -39,7 +37,7 @@ namespace Prestige.RoyalRent.Client.Business
 
         public override string ToString()
         {
-            return $"{Brand} {Model} {Carcase} {Motor} {Color} [{IsOccupied}].";
+            return $"{Brand} {Model} {Carcase} {Motor} {Color}";
         }
     }
 }
