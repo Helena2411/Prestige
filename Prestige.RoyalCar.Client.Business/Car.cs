@@ -16,15 +16,34 @@ namespace Prestige.RoyalRent.Client.Business
         BMW,
         Honda
     }
+
+    public enum EnumModel
+    {
+        Astra,
+        ML280,
+        A4,
+        X6,
+        Civic
+    }
+
+    public enum EnumCarcase
+    {
+        Saloon,
+        Jeep,
+        Carcase,
+        SUV,
+        Coupe
+    }
+
     public class Car
     {
         public EnumBrand Brand { get; set; }
 
         public string Id { get; set; }
 
-        public string Model { get; set; }
+        public EnumModel Model { get; set; }
 
-        public string Carcase { get; set; }
+        public EnumCarcase Carcase { get; set; }
 
         public string Motor { get; set; }
 
@@ -32,7 +51,7 @@ namespace Prestige.RoyalRent.Client.Business
 
         public string CustomerId { get; set; }
 
-        public Car(EnumBrand brand, string model, string carcase, string motor, string color)
+        public Car(EnumBrand brand, EnumModel model, EnumCarcase carcase, string motor, string color)
         {
             Brand = brand;
             Model = model;
