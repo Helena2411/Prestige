@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    public class OccupyException : Exception
+    public class RoyalCarException : Exception
     {
-        public OccupyException() { }
+        public RoyalCarException() { }
 
-        public OccupyException(string message) : base(message) { }
+        public RoyalCarException(string message) : base(message) { }
 
-        public OccupyException(string message, Exception inner) : base(message, inner) { }
+        public RoyalCarException(string message, Exception inner) : base(message, inner) { }
     }
 }

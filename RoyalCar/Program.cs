@@ -62,7 +62,7 @@ namespace Prestige.RoyalRent
                     Console.ReadLine();
                     break;
                 }
-                catch (OccupyException ex)
+                catch (RoyalCarException ex)
                 {
                     Console.WriteLine($"Error: {ex.Message}");
                 }

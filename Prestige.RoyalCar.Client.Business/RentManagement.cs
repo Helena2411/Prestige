@@ -12,7 +12,7 @@ namespace Prestige.RoyalRent.Client.Business
         {
             if (car.CustomerId != "")
             {
-                throw new OccupyException("This car is already occupied");
+                throw new RoyalCarException("This car is already occupied");
             }
             car.CustomerId = customer.Id;
         }
@@ -21,7 +21,7 @@ namespace Prestige.RoyalRent.Client.Business
         {
             if (car.CustomerId == "")
             {
-                throw new OccupyException("This car is already retrieved ");
+                throw new RoyalCarException("This car is already retrieved ");
             }
             car.CustomerId = "";
         }
