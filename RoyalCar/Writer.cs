@@ -17,17 +17,5 @@ namespace Prestige.RoyalRent
                 Console.WriteLine($"{i+1}. {cars[i]}");
             }
         }
-
-        public static void PrintAvailableCar(RoyalCarContext json, Customer customer)
-        {
-            Console.WriteLine("Available for you cars and occupied by you:");
-            for (int i = 0; i < json.Cars.Count; i++)
-            {
-                if (json.Cars[i].CustomerId == "" || customer.Id == json.Cars[i].CustomerId)
-                {
-                    Console.WriteLine($"{i + 1}. {json.Cars[i]}");
-                }
-            }
-        }
     }
 }
