@@ -24,7 +24,8 @@ namespace Prestige.RoyalRent
             Console.WriteLine("What is your email?");
             string email = Console.ReadLine();
 
-            Customer customer = CustomerService.AddNewCustomerOrGetExisting(json, email, name);
+            CustomerService customerService = new CustomerService();
+            Customer customer = customerService.AddNewCustomerOrGetExisting(json, email, name);
 
             RentManagement rentManager = new RentManagement();
             Consultant consultant = new Consultant();

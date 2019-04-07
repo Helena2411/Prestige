@@ -10,7 +10,7 @@ namespace Prestige.RoyalRent.Client.Business
 {
     public class CustomerService
     {
-        public static Customer AddNewCustomerOrGetExisting(RoyalCarContext json, string email, string name)
+        public Customer AddNewCustomerOrGetExisting(RoyalCarContext json, string email, string name)
         {
             Customer customer;
             // TODO convert to LINQ
