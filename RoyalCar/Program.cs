@@ -32,42 +32,9 @@ namespace Prestige.RoyalRent
        
             Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
             string answer = Console.ReadLine();
-            
-            while (true)
-            {
-                try
-                {
-                    Console.WriteLine("You can choose car by number");
-                    if (answer == "1")
-                    {
-                        List<Car> availableCars = consultant.GetAvailableCar(json);
-                        Writer.PrintArray(availableCars);
-                        string index = Console.ReadLine();
-                        rentManager.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index)-1], customer);
-                        JsonToArrayObject.SerializeArray(json, filename);
-                        Console.WriteLine("You occupied a car! Have a good day!");
-                    }
-                    else if (answer == "2")
-                    {
-                        List<Car> occupiedCarByCustomer = consultant.GetOccupiedCarsByCustomer(json, customer);
-                        Writer.PrintArray(occupiedCarByCustomer);
-                        string index = Console.ReadLine();
-                        rentManager.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
-                        JsonToArrayObject.SerializeArray(json, filename);
-                        Console.WriteLine("You retrieved a car! Have a good day!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Incorrect! Bye!");
-                    }
-                    Console.ReadLine();
-                    break;
-                }
-                catch (RoyalCarException ex)
-                {
-                    Console.WriteLine($"Error: {ex.Message}");
-                }
-            }
+
+            CustomerAction customerAction = new CustomerAction();
+            customerAction.ChoiceActionByCustomer(answer, json, consultant, rentManager, filename, customer);
         }
     }
 }
