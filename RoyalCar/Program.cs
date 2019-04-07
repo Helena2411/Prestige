@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
-using Prestige.RoyalCar.Client.Business;
+using Prestige.RoyalRent.Client.Business;
 
 namespace Prestige.RoyalRent
 {
@@ -17,14 +17,14 @@ namespace Prestige.RoyalRent
         static void Main(string[] args)
         {
             string filename = ConfigurationManager.AppSettings.Get("FileName");
-            ObjectJson json = JsonToArrayObject.DeserializeArray(filename);
+            RoyalCarContext json = JsonToArrayObject.DeserializeArray(filename);
 
             Console.WriteLine("Hi! What is your name?");
             string name = Console.ReadLine();
             Console.WriteLine("What is your email?");
             string email = Console.ReadLine();
 
-            Customer customer = RecordCustomer.checkCustomer(json, email, name);
+            Customer customer = CustomerService.AddNewCustomerOrGetExisting(json, email, name);
 
             RentManagement rentManager = new RentManagement();
             Writer.PrintAvailableCar(json, customer);
@@ -39,14 +39,14 @@ namespace Prestige.RoyalRent
                     if (answer == "1")
                     {
                         string index = Console.ReadLine();
-                        rentManager.CheckOccupyCar(json, Convert.ToInt32(index) - 1, customer);
+                        rentManager.CheckOccupationOfCarAndSetConnectionWithCustomer(json, Convert.ToInt32(index) - 1, customer);
                         JsonToArrayObject.SerializeArray(json, filename);
                         Console.WriteLine("You occupied a car! Have a good day!");
                     }
                     else if (answer == "2")
                     {
                         string index = Console.ReadLine();
-                        rentManager.CheckRetrieveCar(json, Convert.ToInt32(index) - 1, customer);
+                        rentManager.CheckRefundOfCarAndSetConnectionWithCustomer(json, Convert.ToInt32(index) - 1, customer);
                         JsonToArrayObject.SerializeArray(json, filename);
                         Console.WriteLine("You retrieved a car! Have a good day!");
                     }
