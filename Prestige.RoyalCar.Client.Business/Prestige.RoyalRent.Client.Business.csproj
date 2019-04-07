@@ -55,7 +55,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="JsonToArrayObject.cs" />
     <Compile Include="RoyalCarContext.cs" />
-    <Compile Include="OccupyException.cs" />
+    <Compile Include="RoyalCarException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomerService.cs" />
     <Compile Include="RentManagement.cs" />
