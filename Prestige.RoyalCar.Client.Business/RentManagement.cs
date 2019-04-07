@@ -8,22 +8,22 @@ namespace Prestige.RoyalRent.Client.Business
 {
     public class RentManagement
     {
-        public void CheckOccupationOfCarAndSetConnectionWithCustomer(RoyalCarContext json, int index, Customer customer)
+        public void CheckOccupationOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
         {
-            if (json.Cars[index].CustomerId != "")
+            if (car.CustomerId != "")
             {
                 throw new OccupyException("This car is already occupied");
             }
-            json.Cars[index].CustomerId = customer.Id;
+            car.CustomerId = customer.Id;
         }
 
-        public void CheckRefundOfCarAndSetConnectionWithCustomer(RoyalCarContext json, int index, Customer customer)
+        public void CheckRefundOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
         {
-            if (json.Cars[index].CustomerId == "")
+            if (car.CustomerId == "")
             {
                 throw new OccupyException("This car is already retrieved ");
             }
-            json.Cars[index].CustomerId = "";
+            car.CustomerId = "";
         }
     }
 }

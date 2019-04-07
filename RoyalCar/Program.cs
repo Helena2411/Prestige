@@ -27,26 +27,31 @@ namespace Prestige.RoyalRent
             Customer customer = CustomerService.AddNewCustomerOrGetExisting(json, email, name);
 
             RentManagement rentManager = new RentManagement();
-            Writer.PrintAvailableCar(json, customer);
+            Consultant consultant = new Consultant();
+       
             Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
             string answer = Console.ReadLine();
-
+            
             while (true)
             {
                 try
                 {
-                    Console.WriteLine("You can choose car by number (true - available for occupation)");
+                    Console.WriteLine("You can choose car by number");
                     if (answer == "1")
                     {
+                        List<Car> availableCars = consultant.GetAvailableCar(json);
+                        Writer.PrintArray(availableCars);
                         string index = Console.ReadLine();
-                        rentManager.CheckOccupationOfCarAndSetConnectionWithCustomer(json, Convert.ToInt32(index) - 1, customer);
+                        rentManager.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index)-1], customer);
                         JsonToArrayObject.SerializeArray(json, filename);
                         Console.WriteLine("You occupied a car! Have a good day!");
                     }
                     else if (answer == "2")
                     {
+                        List<Car> occupiedCarByCustomer = consultant.GetOccupiedCarsByCustomer(json, customer);
+                        Writer.PrintArray(occupiedCarByCustomer);
                         string index = Console.ReadLine();
-                        rentManager.CheckRefundOfCarAndSetConnectionWithCustomer(json, Convert.ToInt32(index) - 1, customer);
+                        rentManager.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
                         JsonToArrayObject.SerializeArray(json, filename);
                         Console.WriteLine("You retrieved a car! Have a good day!");
                     }
