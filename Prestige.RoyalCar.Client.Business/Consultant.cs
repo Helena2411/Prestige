@@ -17,7 +17,6 @@ namespace Prestige.RoyalRent.Client.Business
                 if (json.Cars[i].CustomerId == "")
                 {
                     availableCars.Add(json.Cars[i]);
-                    //Console.WriteLine($"{i + 1}. {json.Cars[i]}");
                 }
             }
             return availableCars;
@@ -32,7 +31,6 @@ namespace Prestige.RoyalRent.Client.Business
                 if (customer.Id == json.Cars[i].CustomerId)
                 {
                     occupiedCars.Add(json.Cars[i]);
-                    //Console.WriteLine($"{i + 1}. {json.Cars[i]}");
                 }
             }
             return occupiedCars;
