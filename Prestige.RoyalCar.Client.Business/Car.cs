@@ -8,9 +8,17 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalRent.Client.Business
 {
+    public enum EnumBrand
+    {
+        Opel,
+        Mercedes,
+        Audi,
+        BMW,
+        Honda
+    }
     public class Car
     {
-        public string Brand { get; set; }
+        public EnumBrand Brand { get; set; }
 
         public string Id { get; set; }
 
@@ -24,7 +32,7 @@ namespace Prestige.RoyalRent.Client.Business
 
         public string CustomerId { get; set; }
 
-        public Car(string brand, string model, string carcase, string motor, string color)
+        public Car(EnumBrand brand, string model, string carcase, string motor, string color)
         {
             Brand = brand;
             Model = model;
