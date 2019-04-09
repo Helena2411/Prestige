@@ -50,9 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumBrand.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Consultant.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="EnumCarcase.cs" />
+    <Compile Include="EnumModel.cs" />
     <Compile Include="JsonToArrayObject.cs" />
     <Compile Include="RoyalCarContext.cs" />
     <Compile Include="RoyalCarException.cs" />

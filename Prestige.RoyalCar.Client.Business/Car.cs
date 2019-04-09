@@ -8,33 +8,6 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    public enum EnumBrand
-    {
-        Opel,
-        Mercedes,
-        Audi,
-        BMW,
-        Honda
-    }
-
-    public enum EnumModel
-    {
-        Astra,
-        ML280,
-        A4,
-        X6,
-        Civic
-    }
-
-    public enum EnumCarcase
-    {
-        Saloon,
-        Jeep,
-        Carcase,
-        SUV,
-        Coupe
-    }
-
     public class Car
     {
         public EnumBrand Brand { get; set; }
