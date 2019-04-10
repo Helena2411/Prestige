@@ -1,12 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prestige.RoyalCar.Common.Enums;
 
-namespace Prestige.RoyalRent.Client.Business
+namespace Prestige.RoyalCar.Common.Models
 {
     public class Car
     {
@@ -31,7 +25,6 @@ namespace Prestige.RoyalRent.Client.Business
             Carcase = carcase;
             Motor = motor;
             Color = color;
-            Id = Guid.NewGuid().ToString("N");
             CustomerId = "";
         }
 

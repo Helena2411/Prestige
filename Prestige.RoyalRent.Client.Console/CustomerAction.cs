@@ -4,12 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prestige.RoyalCar.Common;
+using Prestige.RoyalRent.Client.Business.Controllers;
+using Prestige.RoyalRent.Client.Console;
 
 namespace Prestige.RoyalRent
 {
     class CustomerAction
     {
-        public void ChoiceActionByCustomer(string answer, RoyalCarContext json, Consultant consultant, RentManagement rentManager, string filename, Customer customer)
+        private readonly CarController _carController;
+
+        public CustomerAction(CarController carController)
+        {
+            _carController = carController;
+        }
+
+        public void ChoiceActionByCustomer(string answer, RoyalCar.Common.Models.Customer customer)
         {
             while (true)
             {
@@ -18,20 +28,18 @@ namespace Prestige.RoyalRent
                     Console.WriteLine("You can choose car by number");
                     if (answer == "1")
                     {
-                        List<Car> availableCars = consultant.GetAvailableCar(json);
+                        var availableCars = _carController.GetAvailableCar();
                         Writer.PrintArray(availableCars);
                         string index = Console.ReadLine();
-                        rentManager.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
-                        JsonToArrayObject.SerializeArray(json, filename);
+                        _carController.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
                         Console.WriteLine("You occupied a car! Have a good day!");
                     }
                     else if (answer == "2")
                     {
-                        List<Car> occupiedCarByCustomer = consultant.GetOccupiedCarsByCustomer(json, customer);
+                        var occupiedCarByCustomer = _carController.GetOccupiedCarsByCustomer(customer);
                         Writer.PrintArray(occupiedCarByCustomer);
                         string index = Console.ReadLine();
-                        rentManager.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
-                        JsonToArrayObject.SerializeArray(json, filename);
+                        _carController.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
                         Console.WriteLine("You retrieved a car! Have a good day!");
                     }
                     else

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    public class Customer
+    internal class Customer
     {
         public string Name { get; set; }
 

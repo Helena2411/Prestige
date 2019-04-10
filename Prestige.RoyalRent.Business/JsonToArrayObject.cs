@@ -11,7 +11,7 @@ using System.Configuration;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    public class JsonToArrayObject
+    internal class JsonToArrayObject
     {
         public static void SerializeArray(RoyalCarContext objectJson, string filename)
         {

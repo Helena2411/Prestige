@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Prestige.RoyalRent.Client.Business
+namespace Prestige.RoyalCar.Common
 {
     public class RoyalCarException : Exception
     {
