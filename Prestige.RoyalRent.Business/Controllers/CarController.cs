@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Prestige.RoyalCar.Common;
+using AutoMapper;
 
 
 namespace Prestige.RoyalRent.Client.Business.Controllers
@@ -14,51 +15,53 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             _context = RoyalCarContext.Context;
         }
 
-        public List<RoyalCar.Common.Models.Car> GetAvailableCar()
+        public List<Car> GetAvailableCar()
         {
-            Console.WriteLine("Available cars:");
             List<Car> availableCars = new List<Car>();
+            bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
                 if (_context.Cars[i].CustomerId == "")
                 {
                     availableCars.Add(_context.Cars[i]);
+                    isEmpty = false;
                 }
             }
-            return null; // TODO use automapper
+            if (isEmpty)
+            {
+                throw new RoyalCarException("You haven't available for occupy cars! Please, choose your action again");
+            }
+            return availableCars; // TODO use automapper
         }
 
-        public List<RoyalCar.Common.Models.Car> GetOccupiedCarsByCustomer(RoyalCar.Common.Models.Customer customer)
+        public List<Car> GetOccupiedCarsByCustomer(Customer customer)
         {
             List<Car> occupiedCars = new List<Car>();
-            Console.WriteLine("Your current cars:");
+            bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
                 if (customer.Id == _context.Cars[i].CustomerId)
                 {
                     occupiedCars.Add(_context.Cars[i]);
+                    isEmpty = false;
                 }
             }
-            return null; // TODO use automapper
+            if (isEmpty)
+            {
+                throw new RoyalCarException("You haven't occupied car by youself! Please, choose your action again");
+            }
+            return occupiedCars; // TODO use automapper
         }
 
-        public void CheckOccupationOfCarAndSetConnectionWithCustomer(RoyalCar.Common.Models.Car car, RoyalCar.Common.Models.Customer customer)
+        public void CheckOccupationOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
         {
-            if (car.CustomerId != "")
-            {
-                throw new RoyalCarException("This car is already occupied");
-            }
             car.CustomerId = customer.Id;
 
             _context.SaveChanges();
         }
 
-        public void CheckRefundOfCarAndSetConnectionWithCustomer(RoyalCar.Common.Models.Car car, RoyalCar.Common.Models.Customer customer)
+        public void CheckRefundOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
         {
-            if (car.CustomerId == "")
-            {
-                throw new RoyalCarException("This car is already retrieved ");
-            }
             car.CustomerId = "";
 
             _context.SaveChanges();

@@ -2,7 +2,7 @@
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    internal class Car
+    public class Car
     {
         public EnumBrand Brand { get; set; }
 

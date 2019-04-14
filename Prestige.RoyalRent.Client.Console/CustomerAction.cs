@@ -2,6 +2,7 @@
 using Prestige.RoyalCar.Common;
 using Prestige.RoyalRent.Client.Business.Controllers;
 using Prestige.RoyalRent.Client.Console;
+using Prestige.RoyalRent.Client.Business;
 
 namespace Prestige.RoyalRent
 {
@@ -14,40 +15,46 @@ namespace Prestige.RoyalRent
             _carController = carController;
         }
 
-        public void ChoiceActionByCustomer(string answer, RoyalCar.Common.Models.Customer customer)
+        public void ChoiceActionByCustomer(Customer customer)
         {
             while (true)
             {
                 try
                 {
-                    Console.WriteLine("You can choose car by number");
+                    string answer = System.Console.ReadLine();
+                    
                     if (answer == "1")
                     {
                         var availableCars = _carController.GetAvailableCar();
+                        Console.WriteLine("You can choose car by number");
+                        Console.WriteLine("Available cars:");
                         Writer.PrintArray(availableCars);
                         string index = Console.ReadLine();
                         _carController.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
                         Console.WriteLine("You occupied a car! Have a good day!");
+                        break;
                     }
                     else if (answer == "2")
                     {
                         var occupiedCarByCustomer = _carController.GetOccupiedCarsByCustomer(customer);
+                        Console.WriteLine("You can choose car by number");
+                        Console.WriteLine("Your current cars:");
                         Writer.PrintArray(occupiedCarByCustomer);
                         string index = Console.ReadLine();
                         _carController.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
                         Console.WriteLine("You retrieved a car! Have a good day!");
+                        break;
                     }
                     else
                     {
                         Console.WriteLine("Incorrect! Bye!");
                     }
-                    Console.ReadLine();
-                    break;
                 }
                 catch (RoyalCarException ex)
                 {
                     Console.WriteLine($"Error: {ex.Message}");
                 }
+                Console.ReadLine();
             }
         }
     }

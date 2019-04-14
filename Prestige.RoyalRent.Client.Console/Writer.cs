@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Prestige.RoyalRent.Client.Business;
+using System.Collections.Generic;
 
 namespace Prestige.RoyalRent.Client.Console
 {
     class Writer
     {
-        public static void PrintArray(List<RoyalCar.Common.Models.Car> cars)
+        public static void PrintArray(List<Car> cars)
         {
             for (int i = 0; i < cars.Count; i++)
             {

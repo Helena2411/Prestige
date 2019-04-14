@@ -1,4 +1,5 @@
-﻿using Prestige.RoyalRent.Client.Business.Controllers;
+﻿using Prestige.RoyalRent.Client.Business;
+using Prestige.RoyalRent.Client.Business.Controllers;
 
 namespace Prestige.RoyalRent.Client.Console
 {
@@ -12,13 +13,12 @@ namespace Prestige.RoyalRent.Client.Console
             string email = System.Console.ReadLine();
 
             CustomerController customerController = new CustomerController();
-            RoyalCar.Common.Models.Customer customer = customerController.AddNewCustomerOrGetExisting(email, name);
+            Customer customer = customerController.AddNewCustomerOrGetExisting(email, name);
 
             System.Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
-            string answer = System.Console.ReadLine();
 
             CustomerAction customerAction = new CustomerAction(new CarController());
-            customerAction.ChoiceActionByCustomer(answer, customer);
+            customerAction.ChoiceActionByCustomer(customer);
         }
     }
 }

@@ -6,10 +6,10 @@
 
         public CustomerController()
         {
-            _context = new RoyalCarContext();
+            _context = RoyalCarContext.Context;
         }
 
-        public RoyalCar.Common.Models.Customer AddNewCustomerOrGetExisting(string email, string name)
+        public Customer AddNewCustomerOrGetExisting(string email, string name)
         {
             Customer customer;
             // TODO convert to LINQ
@@ -18,12 +18,12 @@
                 if (email == _context.Customers[i].Email)
                 {
                     customer = _context.Customers[i];
-                    return null; // TODO use automapper
+                    return customer; // TODO use automapper
                 }
             }
             customer = new Customer(name, email);
             _context.Customers.Add(customer);
-            return null; // TODO use automapper
+            return customer; // TODO use automapper
         }
     }
 }
