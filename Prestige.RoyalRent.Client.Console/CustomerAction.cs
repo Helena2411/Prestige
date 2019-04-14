@@ -1,10 +1,9 @@
 ﻿using System;
-using Prestige.RoyalCar.Common;
-using Prestige.RoyalRent.Client.Business.Controllers;
-using Prestige.RoyalRent.Client.Console;
+using Prestige.RoyalRent.Common;
 using Prestige.RoyalRent.Client.Business;
+using Prestige.RoyalRent.Client.Business.Controllers;
 
-namespace Prestige.RoyalRent
+namespace Prestige.RoyalRent.Client.Console
 {
     class CustomerAction
     {
@@ -26,35 +25,34 @@ namespace Prestige.RoyalRent
                     if (answer == "1")
                     {
                         var availableCars = _carController.GetAvailableCar();
-                        Console.WriteLine("You can choose car by number");
-                        Console.WriteLine("Available cars:");
+                        System.Console.WriteLine("You can choose car by number");
+                        System.Console.WriteLine("Available cars:");
                         Writer.PrintArray(availableCars);
-                        string index = Console.ReadLine();
+                        string index = System.Console.ReadLine();
                         _carController.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
-                        Console.WriteLine("You occupied a car! Have a good day!");
+                        System.Console.WriteLine("You occupied a car! Have a good day!");
                         break;
                     }
                     else if (answer == "2")
                     {
                         var occupiedCarByCustomer = _carController.GetOccupiedCarsByCustomer(customer);
-                        Console.WriteLine("You can choose car by number");
-                        Console.WriteLine("Your current cars:");
+                        System.Console.WriteLine("You can choose car by number");
+                        System.Console.WriteLine("Your current cars:");
                         Writer.PrintArray(occupiedCarByCustomer);
-                        string index = Console.ReadLine();
+                        string index = System.Console.ReadLine();
                         _carController.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
-                        Console.WriteLine("You retrieved a car! Have a good day!");
+                        System.Console.WriteLine("You retrieved a car! Have a good day!");
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Incorrect! Bye!");
+                        System.Console.WriteLine("Incorrect! Bye!");
                     }
                 }
-                catch (RoyalCarException ex)
+                catch (RoyalRentException ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    System.Console.WriteLine($"Error: {ex.Message}");
                 }
-                Console.ReadLine();
             }
         }
     }

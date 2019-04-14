@@ -1,4 +1,4 @@
-﻿namespace Prestige.RoyalCar.Common.Enums
+﻿namespace Prestige.RoyalRent.Common.Enums
 {
     public enum EnumCarcase
     {

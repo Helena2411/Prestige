@@ -46,7 +46,7 @@
     <Compile Include="Enums\EnumCarcase.cs" />
     <Compile Include="Enums\EnumModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoyalCarException.cs" />
+    <Compile Include="RoyalRentException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

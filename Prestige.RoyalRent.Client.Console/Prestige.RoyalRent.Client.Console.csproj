@@ -58,7 +58,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Prestige.RoyalRent.Business\Prestige.RoyalRent.Client.Business.csproj">
+    <ProjectReference Include="..\Prestige.RoyalRent.Client.Business\Prestige.RoyalRent.Client.Business.csproj">
       <Project>{CAE41688-5803-4E3D-BCE3-F816C38CA326}</Project>
       <Name>Prestige.RoyalRent.Client.Business</Name>
     </ProjectReference>

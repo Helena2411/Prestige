@@ -19,6 +19,7 @@ namespace Prestige.RoyalRent.Client.Console
 
             CustomerAction customerAction = new CustomerAction(new CarController());
             customerAction.ChoiceActionByCustomer(customer);
+            System.Console.ReadLine();
         }
     }
 }

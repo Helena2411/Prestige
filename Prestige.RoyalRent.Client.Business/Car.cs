@@ -1,4 +1,4 @@
-﻿using Prestige.RoyalCar.Common.Enums;
+﻿using Prestige.RoyalRent.Common.Enums;
 
 namespace Prestige.RoyalRent.Client.Business
 {

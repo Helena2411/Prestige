@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Prestige.RoyalCar.Common;
+using Prestige.RoyalRent.Common;
 using AutoMapper;
 
 
@@ -29,7 +29,7 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             }
             if (isEmpty)
             {
-                throw new RoyalCarException("You haven't available for occupy cars! Please, choose your action again");
+                throw new RoyalRentException("You haven't available for occupy cars! Please, choose your action again");
             }
             return availableCars; // TODO use automapper
         }
@@ -48,7 +48,7 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             }
             if (isEmpty)
             {
-                throw new RoyalCarException("You haven't occupied car by youself! Please, choose your action again");
+                throw new RoyalRentException("You haven't occupied car by youself! Please, choose your action again");
             }
             return occupiedCars; // TODO use automapper
         }
