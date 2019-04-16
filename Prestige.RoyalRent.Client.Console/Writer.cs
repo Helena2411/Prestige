@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Prestige.RoyalRent.Client.Business;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Prestige.RoyalCar
+namespace Prestige.RoyalRent.Client.Console
 {
     class Writer
     {
@@ -12,7 +9,7 @@ namespace Prestige.RoyalCar
         {
             for (int i = 0; i < cars.Count; i++)
             {
-                Console.WriteLine($"{i+1}. {cars[i]}");
+                System.Console.WriteLine($"{i+1}. {cars[i]}");
             }
         }
     }

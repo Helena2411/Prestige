@@ -48,18 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="JsonToArrayObject.cs" />
-    <Compile Include="OccupyException.cs" />
+    <Compile Include="CustomerAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RentManager.cs" />
     <Compile Include="Writer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prestige.RoyalRent.Client.Business\Prestige.RoyalRent.Client.Business.csproj">
+      <Project>{CAE41688-5803-4E3D-BCE3-F816C38CA326}</Project>
+      <Name>Prestige.RoyalRent.Client.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prestige.RoyalRent.Common\Prestige.RoyalRent.Common.csproj">
+      <Project>{ae04e6a5-dfc7-43f1-9cee-ff2d29ef023e}</Project>
+      <Name>Prestige.RoyalRent.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
