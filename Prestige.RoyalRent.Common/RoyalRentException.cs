@@ -6,8 +6,8 @@ namespace Prestige.RoyalRent.Common
     {
         public RoyalRentException() { }
 
-        public RoyalRentException(string message) : base(message) { }
+        public RoyalRentException(string message1) : base(message1) { }
 
-        public RoyalRentException(string message, Exception inner) : base(message, inner) { }
+        public RoyalRentException(string message1, Exception inner) : base(message1, inner) { }
     }
 }
