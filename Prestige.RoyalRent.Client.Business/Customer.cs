@@ -2,15 +2,15 @@
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    public class Customer
+    public class Customer<T>
     {
         public string Name { get; set; }
 
         public string Id { get; set; }
 
-        public string Email { get; set; }
+        public T Email { get; set; }
 
-        public Customer(string name, string email)
+        public Customer(string name, T email)
         {
             Name = name;
             Email = email;

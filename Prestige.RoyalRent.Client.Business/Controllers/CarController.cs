@@ -10,18 +10,21 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
     {
         private readonly RoyalCarContext _context;
 
+        public delegate List<Car> GetCars(Customer<string> customer);
+
+
         public CarController()
         {
             _context = RoyalCarContext.Context;
         }
 
-        public List<Car> GetAvailableCar()
+        public List<Car> GetAvailableCar(Customer<string> customer)
         {
             List<Car> availableCars = new List<Car>();
             bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
-                if (_context.Cars[i].CustomerId == "")
+                if (!_context.Cars[i].CustomerId.Equals(customer.Id))
                 {
                     availableCars.Add(_context.Cars[i]);
                     isEmpty = false;
@@ -34,7 +37,7 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return availableCars; // TODO use automapper
         }
 
-        public List<Car> GetOccupiedCarsByCustomer(Customer customer)
+        public List<Car> GetOccupiedCarsByCustomer(Customer<string> customer)
         {
             List<Car> occupiedCars = new List<Car>();
             bool isEmpty = true;
@@ -53,14 +56,14 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return occupiedCars; // TODO use automapper
         }
 
-        public void CheckOccupationOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
+        public void CheckOccupationOfCarAndSetConnectionWithCustomer(Car car, Customer<string> customer)
         {
             car.CustomerId = customer.Id;
 
             _context.SaveChanges();
         }
 
-        public void CheckRefundOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
+        public void CheckRefundOfCarAndSetConnectionWithCustomer(Car car)
         {
             car.CustomerId = "";
 

@@ -9,9 +9,9 @@
             _context = RoyalCarContext.Context;
         }
 
-        public Customer AddNewCustomerOrGetExisting(string email, string name)
+        public Customer<string> AddNewCustomerOrGetExisting(string email, string name)
         {
-            Customer customer;
+            Customer<string> customer;
             // TODO convert to LINQ
             for (int i = 0; i < _context.Customers.Count; i++)
             {
@@ -21,7 +21,7 @@
                     return customer; // TODO use automapper
                 }
             }
-            customer = new Customer(name, email);
+            customer = new Customer<string>(name, email);
             _context.Customers.Add(customer);
             return customer; // TODO use automapper
         }

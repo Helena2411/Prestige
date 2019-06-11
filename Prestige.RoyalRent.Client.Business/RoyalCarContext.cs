@@ -16,7 +16,7 @@ namespace Prestige.RoyalRent.Client.Business
 
         public List<Car> Cars { get; set; }
          
-        public List<Customer> Customers { get; set; }
+        public List<Customer<string>> Customers { get; set; }
 
         public void SaveChanges()
         {

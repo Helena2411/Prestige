@@ -13,7 +13,7 @@ namespace Prestige.RoyalRent.Client.Console
             string email = System.Console.ReadLine();
 
             CustomerController customerController = new CustomerController();
-            Customer customer = customerController.AddNewCustomerOrGetExisting(email, name);
+            Customer<string> customer = customerController.AddNewCustomerOrGetExisting(email, name);
 
             System.Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
 
