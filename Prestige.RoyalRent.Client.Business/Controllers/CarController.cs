@@ -55,14 +55,14 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return occupiedCars; // TODO use automapper
         }
 
-        public void OccupyOfCarByCustomer(Car car, Customer<string> customer)
+        public void OccupyOfCarByCustomerAndSaveChanges(Car car, Customer<string> customer)
         {
             car.CustomerId = customer.Id;
 
             _context.SaveChanges();
         }
 
-        public void RefundOfCarByCustomer(Car car)
+        public void RefundOfCarByCustomerAndSaveChanges(Car car)
         {
             car.CustomerId = "";
 

@@ -32,7 +32,7 @@ namespace Prestige.RoyalRent.Client.Console
                         var availableCars = getCars(customer);
                         Writer.PrintArray(availableCars);
                         string index = System.Console.ReadLine();
-                        _carController.OccupyOfCarByCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
+                        _carController.OccupyOfCarByCustomerAndSaveChanges(availableCars[Convert.ToInt32(index) - 1], customer);
                         System.Console.WriteLine("You occupied a car! Have a good day!");
                         break;
                     }
@@ -44,7 +44,7 @@ namespace Prestige.RoyalRent.Client.Console
                         var occupiedCarByCustomer = getCars(customer);
                         Writer.PrintArray(occupiedCarByCustomer);
                         string index = System.Console.ReadLine();
-                        _carController.RefundOfCarByCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1]);
+                        _carController.RefundOfCarByCustomerAndSaveChanges(occupiedCarByCustomer[Convert.ToInt32(index) - 1]);
                         System.Console.WriteLine("You retrieved a car! Have a good day!");
                         break;
                     }
