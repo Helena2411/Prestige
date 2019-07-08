@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Client.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Client.Console", "Prestige.RoyalRent.Client.Console\Prestige.RoyalRent.Client.Console.csproj", "{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Service", "Prestige.RoyalRent.Service\Prestige.RoyalRent.Service.csproj", "{DD8ED10C-1F97-4AB2-A874-ED60464462D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Api", "Prestige.RoyalRent.Service\Prestige.RoyalRent.Api.csproj", "{DD8ED10C-1F97-4AB2-A874-ED60464462D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
