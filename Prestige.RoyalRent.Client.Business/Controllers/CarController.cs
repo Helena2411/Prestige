@@ -55,9 +55,9 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return occupiedCars; // TODO use automapper
         }
 
-        public void OccupyOfCarByCustomerAndSaveChanges(Car car, Customer<string> customer)
+        public void OccupyOfCarByCustomerAndSaveChanges(Car car, string id)
         {
-            car.CustomerId = customer.Id;
+            car.CustomerId = id;
 
             _context.SaveChanges();
         }

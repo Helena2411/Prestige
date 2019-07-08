@@ -9,7 +9,8 @@ namespace Prestige.RoyalRent.Client.Console
     class CustomerAction
     {
         private readonly CarController _carController;
-        public event CarController.GetCars getCars;
+
+        public event CarController.GetCars GetCars;
 
         public CustomerAction(CarController carController)
         {
@@ -26,22 +27,22 @@ namespace Prestige.RoyalRent.Client.Console
                     
                     if (answer == "1")
                     {
-                        getCars = user => _carController.GetAvailableCars(user);
+                        GetCars = user => _carController.GetAvailableCars(user);
                         System.Console.WriteLine("You can choose car by number");
                         System.Console.WriteLine("Available cars:");
-                        var availableCars = getCars(customer);
+                        var availableCars = GetCars(customer);
                         Writer.PrintArray(availableCars);
                         string index = System.Console.ReadLine();
-                        _carController.OccupyOfCarByCustomerAndSaveChanges(availableCars[Convert.ToInt32(index) - 1], customer);
+                        _carController.OccupyOfCarByCustomerAndSaveChanges(availableCars[Convert.ToInt32(index) - 1], customer.Id);
                         System.Console.WriteLine("You occupied a car! Have a good day!");
                         break;
                     }
                     else if (answer == "2")
                     {
-                        getCars = user => _carController.GetOccupiedCarsByCustomer(user);
+                        GetCars = user => _carController.GetOccupiedCarsByCustomer(user);
                         System.Console.WriteLine("You can choose car by number");
                         System.Console.WriteLine("Your current cars:");
-                        var occupiedCarByCustomer = getCars(customer);
+                        var occupiedCarByCustomer = GetCars(customer);
                         Writer.PrintArray(occupiedCarByCustomer);
                         string index = System.Console.ReadLine();
                         _carController.RefundOfCarByCustomerAndSaveChanges(occupiedCarByCustomer[Convert.ToInt32(index) - 1]);
