@@ -39,7 +39,7 @@ namespace Prestige.RoyalRent.Client.Console
                     }
                     else if (answer == "2")
                     {
-                        GetCars = user => _carController.GetOccupiedCarsByCustomer(user);
+                        GetCars = user => _carController.GetOccupiedCarsByCustomer(user.Id);
                         System.Console.WriteLine("You can choose car by number");
                         System.Console.WriteLine("Your current cars:");
                         var occupiedCarByCustomer = GetCars(customer);

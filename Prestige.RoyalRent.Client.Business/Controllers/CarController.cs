@@ -36,13 +36,13 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return availableCars; // TODO use automapper
         }
 
-        public List<Car> GetOccupiedCarsByCustomer(Customer<string> customer)
+        public List<Car> GetOccupiedCarsByCustomer(string id)
         {
             List<Car> occupiedCars = new List<Car>();
             bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
-                if (customer.Id == _context.Cars[i].CustomerId)
+                if (id == _context.Cars[i].CustomerId)
                 {
                     occupiedCars.Add(_context.Cars[i]);
                     isEmpty = false;
