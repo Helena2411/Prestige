@@ -12,13 +12,12 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
 
         public delegate List<Car> GetCars(Customer<string> customer);
 
-
         public CarController()
         {
             _context = RoyalCarContext.Context;
         }
 
-        public List<Car> GetAvailableCar(Customer<string> customer)
+        public List<Car> GetAvailableCars(Customer<string> customer)
         {
             List<Car> availableCars = new List<Car>();
             bool isEmpty = true;
@@ -56,14 +55,14 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return occupiedCars; // TODO use automapper
         }
 
-        public void CheckOccupationOfCarAndSetConnectionWithCustomer(Car car, Customer<string> customer)
+        public void OccupyOfCarByCustomer(Car car, Customer<string> customer)
         {
             car.CustomerId = customer.Id;
 
             _context.SaveChanges();
         }
 
-        public void CheckRefundOfCarAndSetConnectionWithCustomer(Car car)
+        public void RefundOfCarByCustomer(Car car)
         {
             car.CustomerId = "";
 

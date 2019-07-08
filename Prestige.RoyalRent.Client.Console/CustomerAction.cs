@@ -26,13 +26,13 @@ namespace Prestige.RoyalRent.Client.Console
                     
                     if (answer == "1")
                     {
-                        getCars = user => _carController.GetAvailableCar(user);
+                        getCars = user => _carController.GetAvailableCars(user);
                         System.Console.WriteLine("You can choose car by number");
                         System.Console.WriteLine("Available cars:");
                         var availableCars = getCars(customer);
                         Writer.PrintArray(availableCars);
                         string index = System.Console.ReadLine();
-                        _carController.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
+                        _carController.OccupyOfCarByCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
                         System.Console.WriteLine("You occupied a car! Have a good day!");
                         break;
                     }
@@ -44,7 +44,7 @@ namespace Prestige.RoyalRent.Client.Console
                         var occupiedCarByCustomer = getCars(customer);
                         Writer.PrintArray(occupiedCarByCustomer);
                         string index = System.Console.ReadLine();
-                        _carController.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1]);
+                        _carController.RefundOfCarByCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1]);
                         System.Console.WriteLine("You retrieved a car! Have a good day!");
                         break;
                     }
