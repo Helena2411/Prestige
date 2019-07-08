@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Client.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Client.Console", "Prestige.RoyalRent.Client.Console\Prestige.RoyalRent.Client.Console.csproj", "{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Api", "Prestige.RoyalRent.Service\Prestige.RoyalRent.Api.csproj", "{DD8ED10C-1F97-4AB2-A874-ED60464462D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Api", "Prestige.RoyalRent.Api\Prestige.RoyalRent.Api.csproj", "{B31977ED-AD33-4977-87C1-C39C3E16AF46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD8ED10C-1F97-4AB2-A874-ED60464462D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD8ED10C-1F97-4AB2-A874-ED60464462D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD8ED10C-1F97-4AB2-A874-ED60464462D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD8ED10C-1F97-4AB2-A874-ED60464462D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
