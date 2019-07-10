@@ -17,13 +17,13 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             _context = RoyalCarContext.Context;
         }
 
-        public List<Car> GetAvailableCars(Customer<string> customer)
+        public List<Car> GetAvailableCars(string id)
         {
             List<Car> availableCars = new List<Car>();
             bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
-                if (!_context.Cars[i].CustomerId.Equals(customer.Id))
+                if (!_context.Cars[i].CustomerId.Equals(id))
                 {
                     availableCars.Add(_context.Cars[i]);
                     isEmpty = false;
