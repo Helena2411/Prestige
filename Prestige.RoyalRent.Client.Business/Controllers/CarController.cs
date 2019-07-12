@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Prestige.RoyalRent.Common;
-using AutoMapper;
 
 
 namespace Prestige.RoyalRent.Client.Business.Controllers
