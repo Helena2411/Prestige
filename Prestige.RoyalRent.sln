@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Common", "Prestige.RoyalRent.Common\Prestige.RoyalRent.Common.csproj", "{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Client.Business", "Prestige.RoyalRent.Client.Business\Prestige.RoyalRent.Client.Business.csproj", "{CAE41688-5803-4E3D-BCE3-F816C38CA326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Api", "Prestige.RoyalRent.Api\Prestige.RoyalRent.Api.csproj", "{B31977ED-AD33-4977-87C1-C39C3E16AF46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Client.Console", "Prestige.RoyalRent.Client.Console\Prestige.RoyalRent.Client.Console.csproj", "{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Client.Console", "Prestige.RoyalRent.Client.Console\Prestige.RoyalRent.Client.Console.csproj", "{788E0D5A-E357-4A38-9732-BB293AA4F9C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Client.Business", "Prestige.RoyalRent.Client.Business\Prestige.RoyalRent.Client.Business.csproj", "{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAE41688-5803-4E3D-BCE3-F816C38CA326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAE41688-5803-4E3D-BCE3-F816C38CA326}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAE41688-5803-4E3D-BCE3-F816C38CA326}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAE41688-5803-4E3D-BCE3-F816C38CA326}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DFBB745-16E9-47FA-BDDB-00F2E028BCF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788E0D5A-E357-4A38-9732-BB293AA4F9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788E0D5A-E357-4A38-9732-BB293AA4F9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788E0D5A-E357-4A38-9732-BB293AA4F9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788E0D5A-E357-4A38-9732-BB293AA4F9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

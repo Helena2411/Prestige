@@ -2,6 +2,7 @@
 using Prestige.RoyalRent.Common;
 using Prestige.RoyalRent.Client.Business;
 using Prestige.RoyalRent.Client.Business.Controllers;
+using System.Collections.Generic;
 
 namespace Prestige.RoyalRent.Client.Console
 {
@@ -9,12 +10,14 @@ namespace Prestige.RoyalRent.Client.Console
     {
         private readonly CarController _carController;
 
+        public event CarController.GetCars GetCars;
+
         public CustomerAction(CarController carController)
         {
             _carController = carController;
         }
 
-        public void ChoiceActionByCustomer(Customer customer)
+        public void ChoiceActionByCustomer(Customer<string> customer)
         {
             while (true)
             {
@@ -24,23 +27,25 @@ namespace Prestige.RoyalRent.Client.Console
                     
                     if (answer == "1")
                     {
-                        var availableCars = _carController.GetAvailableCar();
+                        GetCars = user => _carController.GetAvailableCars(user.Id);
                         System.Console.WriteLine("You can choose car by number");
                         System.Console.WriteLine("Available cars:");
+                        var availableCars = GetCars(customer);
                         Writer.PrintArray(availableCars);
                         string index = System.Console.ReadLine();
-                        _carController.CheckOccupationOfCarAndSetConnectionWithCustomer(availableCars[Convert.ToInt32(index) - 1], customer);
+                        _carController.OccupyOfCarByCustomerAndSaveChanges(availableCars[Convert.ToInt32(index) - 1], customer.Id);
                         System.Console.WriteLine("You occupied a car! Have a good day!");
                         break;
                     }
                     else if (answer == "2")
                     {
-                        var occupiedCarByCustomer = _carController.GetOccupiedCarsByCustomer(customer);
+                        GetCars = user => _carController.GetOccupiedCarsByCustomer(user.Id);
                         System.Console.WriteLine("You can choose car by number");
                         System.Console.WriteLine("Your current cars:");
+                        var occupiedCarByCustomer = GetCars(customer);
                         Writer.PrintArray(occupiedCarByCustomer);
                         string index = System.Console.ReadLine();
-                        _carController.CheckRefundOfCarAndSetConnectionWithCustomer(occupiedCarByCustomer[Convert.ToInt32(index) - 1], customer);
+                        _carController.RefundOfCarByCustomerAndSaveChanges(occupiedCarByCustomer[Convert.ToInt32(index) - 1]);
                         System.Console.WriteLine("You retrieved a car! Have a good day!");
                         break;
                     }

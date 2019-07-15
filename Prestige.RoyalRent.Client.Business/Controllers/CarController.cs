@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Prestige.RoyalRent.Common;
-using AutoMapper;
 
 
 namespace Prestige.RoyalRent.Client.Business.Controllers
@@ -10,18 +9,20 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
     {
         private readonly RoyalCarContext _context;
 
+        public delegate List<Car> GetCars(Customer<string> customer);
+
         public CarController()
         {
             _context = RoyalCarContext.Context;
         }
 
-        public List<Car> GetAvailableCar()
+        public List<Car> GetAvailableCars(string id)
         {
             List<Car> availableCars = new List<Car>();
             bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
-                if (_context.Cars[i].CustomerId == "")
+                if (!_context.Cars[i].CustomerId.Equals(id))
                 {
                     availableCars.Add(_context.Cars[i]);
                     isEmpty = false;
@@ -34,13 +35,13 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return availableCars; // TODO use automapper
         }
 
-        public List<Car> GetOccupiedCarsByCustomer(Customer customer)
+        public List<Car> GetOccupiedCarsByCustomer(string id)
         {
             List<Car> occupiedCars = new List<Car>();
             bool isEmpty = true;
             for (int i = 0; i < _context.Cars.Count; i++)
             {
-                if (customer.Id == _context.Cars[i].CustomerId)
+                if (id == _context.Cars[i].CustomerId)
                 {
                     occupiedCars.Add(_context.Cars[i]);
                     isEmpty = false;
@@ -53,14 +54,14 @@ namespace Prestige.RoyalRent.Client.Business.Controllers
             return occupiedCars; // TODO use automapper
         }
 
-        public void CheckOccupationOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
+        public void OccupyOfCarByCustomerAndSaveChanges(Car car, string id)
         {
-            car.CustomerId = customer.Id;
+            car.CustomerId = id;
 
             _context.SaveChanges();
         }
 
-        public void CheckRefundOfCarAndSetConnectionWithCustomer(Car car, Customer customer)
+        public void RefundOfCarByCustomerAndSaveChanges(Car car)
         {
             car.CustomerId = "";
 

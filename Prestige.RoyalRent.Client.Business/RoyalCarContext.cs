@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.FileExtensions;
+using Microsoft.Extensions.Configuration.Json;
 
 namespace Prestige.RoyalRent.Client.Business
 {
-    internal class RoyalCarContext
+    public class RoyalCarContext
     {
         private static RoyalCarContext _context;
 
-        private static readonly string FileName = ConfigurationManager.AppSettings["FileName"];
+        private static readonly IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
+
+        private static readonly string FileName = config["FileName"];
 
         public static RoyalCarContext Context
         {
@@ -16,7 +21,7 @@ namespace Prestige.RoyalRent.Client.Business
 
         public List<Car> Cars { get; set; }
          
-        public List<Customer> Customers { get; set; }
+        public List<Customer<string>> Customers { get; set; }
 
         public void SaveChanges()
         {

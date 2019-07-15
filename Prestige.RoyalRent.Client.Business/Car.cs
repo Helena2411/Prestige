@@ -6,8 +6,6 @@ namespace Prestige.RoyalRent.Client.Business
     {
         public EnumBrand Brand { get; set; }
 
-        public string Id { get; set; }
-
         public EnumModel Model { get; set; }
 
         public EnumCarcase Carcase { get; set; }
