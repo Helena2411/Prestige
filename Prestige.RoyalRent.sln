@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Common", "Prestige.RoyalRent.Common\Prestige.RoyalRent.Common.csproj", "{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Api", "Prestige.RoyalRent.Api\Prestige.RoyalRent.Api.csproj", "{B31977ED-AD33-4977-87C1-C39C3E16AF46}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Client.Console", "Prestige.RoyalRent.Client.Console\Prestige.RoyalRent.Client.Console.csproj", "{788E0D5A-E357-4A38-9732-BB293AA4F9C6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestige.RoyalRent.Client.Business", "Prestige.RoyalRent.Client.Business\Prestige.RoyalRent.Client.Business.csproj", "{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prestige.RoyalRent.Common", "Prestige.RoyalRent.Common\Prestige.RoyalRent.Common.csproj", "{E47ED231-91C1-4E69-8FF3-132EE24F41B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE04E6A5-DFC7-43F1-9CEE-FF2D29EF023E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B31977ED-AD33-4977-87C1-C39C3E16AF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF2FAF38-41C6-451C-9182-6CA5D4502DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E47ED231-91C1-4E69-8FF3-132EE24F41B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47ED231-91C1-4E69-8FF3-132EE24F41B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47ED231-91C1-4E69-8FF3-132EE24F41B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47ED231-91C1-4E69-8FF3-132EE24F41B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
