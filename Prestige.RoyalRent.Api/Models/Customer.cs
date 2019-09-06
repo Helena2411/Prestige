@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Prestige.RoyalRent.Client.Business
 {
@@ -6,15 +6,17 @@ namespace Prestige.RoyalRent.Client.Business
     {
         public string Name { get; set; }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
 
-        public T Email { get; set; }
+        public string Email { get; set; }
 
-        public Customer(string name, T email)
+        public T Password { get; set; }
+
+        public Customer(string name, string email, T password)
         {
             Name = name;
             Email = email;
-            Id = Guid.NewGuid().ToString("N");
+            Password = password;
         }
 
         public override string ToString()

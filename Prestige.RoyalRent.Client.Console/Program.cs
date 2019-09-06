@@ -1,5 +1,5 @@
-﻿using Prestige.RoyalRent.Client.Business;
-using Prestige.RoyalRent.Client.Business.Controllers;
+﻿
+using Prestige.RoyalRent.Client.Business.Models;
 
 namespace Prestige.RoyalRent.Client.Console
 {
@@ -7,19 +7,20 @@ namespace Prestige.RoyalRent.Client.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hi! What is your name?");
-            string name = System.Console.ReadLine();
-            System.Console.WriteLine("What is your email?");
-            string email = System.Console.ReadLine();
-
-            CustomerController customerController = new CustomerController();
-            Customer<string> customer = customerController.AddNewCustomerOrGetExisting(email, name);
-
-            System.Console.WriteLine($"{customer.Name}, you can choose, that you want to do: 1.occupy car or 2. retrieve car");
-
-            CustomerAction customerAction = new CustomerAction(new CarController());
-            customerAction.ChoiceActionByCustomer(customer);
-            System.Console.ReadLine();
+            //System.Console.WriteLine("Hi! What is your name?");
+            //string name = System.Console.ReadLine();
+            //System.Console.WriteLine("What is your email?");
+            //string email = System.Console.ReadLine();
+            //System.Console.WriteLine("What is your password?");
+            //string password = System.Console.ReadLine();
+            var user = new Customer()
+            {
+                Email = "lenka_bokshic@mail.ru",
+                Name = "helena",
+                Password = "lenka999"
+            };
+            var customerAction = new CustomerAction();
+            _ = customerAction.ChoiceActionByCustomerAsync(user);
         }
     }
 }

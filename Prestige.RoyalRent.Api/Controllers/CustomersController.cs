@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Microsoft.AspNetCore;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Prestige.RoyalRent.Client.Business;
 
@@ -9,65 +9,76 @@ namespace Prestige.RoyalRent.Api.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly RoyalCarContext _context;
+        private readonly PrestigeContext db;
 
-        public CustomersController()
+        public CustomersController(PrestigeContext context)
         {
-            _context = RoyalCarContext.Context;
-        }
-
-        public Customer<string> AddNewCustomerOrGetExisting(string email, string name)
-        {
-            Customer<string> customer;
-            // TODO convert to LINQ
-            for (int i = 0; i < _context.Customers.Count; i++)
-            {
-                if (email == _context.Customers[i].Email)
-                {
-                    customer = _context.Customers[i];
-                    return customer; // TODO use automapper
-                }
-            }
-            customer = new Customer<string>(name, email);
-            _context.Customers.Add(customer);
-            return customer; // TODO use automapper
+            db = context;
         }
 
         // GET api/customers/5
-        [HttpGet("email")]
-        public ActionResult<Customer<string>> Get(string email)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            Customer<string> customer;
-            for (int i = 0; i < _context.Customers.Count; i++)
-            {
-                if (email == _context.Customers[i].Email)
-                {
-                    customer = _context.Customers[i];
-                    return customer;
-                }
-            }
-            return BadRequest();
+            var customer = db.Customers.FirstOrDefault(x => x.Id == id);
+            if (customer == null)
+                return NotFound();
+            return new ObjectResult(customer);
         }
 
         // GET api/customers
         [HttpGet]
         public ActionResult<IEnumerable<Customer<string>>> Get()
         {
-            return _context.Customers.ToArray();
+            return db.Customers.ToList();
         }
 
         // POST api/customers
         [HttpPost]
-        public IActionResult Post(string email, string name)
+        public IActionResult Post([FromBody]Customer<string> customer)
         {
-            Customer<string> customer;
-            if (email == null || name == null)
+            if (customer == null)
+            {
+                ModelState.AddModelError("", "Не указаны данные для пользователя");
+                return BadRequest();
+            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            db.Customers.Add(customer);
+            db.SaveChanges();
+            return Ok(customer);
+        }
+
+        // PUT api/customers
+        [HttpPut]
+        public IActionResult Put([FromBody]Customer<string> customer)
+        {
+            if (customer == null)
+            {
+                return BadRequest();
+            }
+            if (!db.Customers.Any(x => x.Id == customer.Id))
+            {
+                return NotFound();
+            }
+
+            db.Update(customer);
+            db.SaveChanges();
+            return Ok(customer);
+        }
+
+        // DELETE api/customers/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var  customer = db.Customers.FirstOrDefault(x => x.Id == id);
+            if (customer == null)
             {
                 return BadRequest();
             }
 
-            customer = new Customer<string>(name, email);
-            _context.Customers.Add(customer);
+            db.Customers.Remove(customer);
+            db.SaveChanges();
             return Ok(customer);
         }
     }

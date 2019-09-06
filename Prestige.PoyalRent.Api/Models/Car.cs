@@ -1,9 +1,11 @@
 ﻿using Prestige.RoyalRent.Common.Enums;
 
-namespace Prestige.RoyalRent.Client.Business
+namespace Prestige.RoyalRent.Api.Models
 {
     public class Car
     {
+        public int Id { get; set; }
+        
         public EnumBrand Brand { get; set; }
 
         public EnumModel Model { get; set; }
@@ -14,17 +16,7 @@ namespace Prestige.RoyalRent.Client.Business
 
         public string Color { get; set; }
 
-        public string CustomerId { get; set; }
-
-        public Car(EnumBrand brand, EnumModel model, EnumCarcase carcase, string motor, string color)
-        {
-            Brand = brand;
-            Model = model;
-            Carcase = carcase;
-            Motor = motor;
-            Color = color;
-            CustomerId = "";
-        }
+        public int CustomerId { get; set; }
 
         public override string ToString()
         {

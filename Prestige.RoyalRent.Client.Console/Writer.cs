@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Prestige.RoyalRent.Client.Business;
+using Prestige.RoyalRent.Client.Business.Models;
 
 namespace Prestige.RoyalRent.Client.Console
 {
